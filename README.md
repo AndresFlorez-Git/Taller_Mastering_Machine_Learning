@@ -22,5 +22,8 @@ $ chmod +x Instalacion.sh
 ```sh
 $ ./Instalacion.sh
 ```
+```sh
+$ cd
+```
 
 4. Ya puede continuar con el resto del taller.
