@@ -1,4 +1,4 @@
-# Face_Mask_Detection_Raspberry_Pi
+# Taller Mastering Machine Learning
 ## Materiales:
 - Raspberry Pi (Puede ser 3b+ o 4b+)
 - Memoria SD de mínimo 15 Gb
@@ -9,7 +9,7 @@
 1. Una vez instalado Raspberry Pi OS en la placa y establecida la configuración de idioma, pantalla y red.
 2. Clonar este repositorio.
 ```sh
-$ git clone https://github.com/AndresFlorez-Git/Face_Mask_Detection_Raspberry_Pi
+$ git clone https://github.com/AndresFlorez-Git/Taller_Mastering_Machine_Learning.git
 ```
 
 3. Ejecutar el archivo de instalación. Este archivo permite de forma automatizada, instalar todas las librerias y dependencias necesarias.
