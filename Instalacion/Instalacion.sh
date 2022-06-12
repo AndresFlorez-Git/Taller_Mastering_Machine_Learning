@@ -21,7 +21,7 @@ python3 -m pip uninstall tensorflow
 python3 -m pip install protobuf==3.20.1
 python3 -m pip install numpy==1.22.1
 
-python3 -m pip install tensorflow-2.8.0-cp39-none-linux_aarch64.sh
+python3 -m pip install tensorflow-2.8.0-cp39-none-linux_aarch64.whl
 
 pip3 install opencv-python==4.5.2.54
 pip3 install scikit-learn==0.24.2
