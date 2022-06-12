@@ -5,9 +5,14 @@ sudo apt-get update
 sudo apt-get upgrade
 
 
-wget https://github.com/lhelontra/tensorflow-on-arm/releases/download/v2.4.0/tensorflow-2.4.0-cp37-none-linux_armv7l.whl
-python3 -m pip uninstall tensorflow
-python3 -m pip install tensorflow-2.4.0-cp37-none-linux_armv7l.whl
+wget https://github.com/PINTO0309/Tensorflow-bin/blob/main/previous_versions/download_tensorflow-2.5.0-cp39-none-linux_aarch64_numpy1195.sh
 
-pip3 install opencv-contrib-python; sudo apt-get install -y libatlas-base-dev libhdf5-dev libhdf5-serial-dev libatlas-base-dev libjasper-dev  libqtgui4  libqt4-test
-pip3 install opencv-python
+chmod +x download_tensorflow-2.5.0-cp39-none-linux_aarch64_numpy1195.sh
+
+./download_tensorflow-2.5.0-cp39-none-linux_aarch64_numpy1195.sh
+
+python3 -m pip uninstall tensorflow
+python3 -m pip install tensorflow-2.5.0-cp39-none-linux_aarch64_numpy1195.whl
+
+pip3 install opencv-python==4.5.2.54
+pip3 install scikit-learn==0.24.2
