@@ -20,7 +20,7 @@ model = load_model('mask_detector1.model')
 print("Iniciando Video...")
 
 # Configuración de la cámara
-camera = cv2.VideoCapture(1)
+camera = cv2.VideoCapture(0)
 
 
 while True:
