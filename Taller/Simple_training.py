@@ -1,29 +1,34 @@
 
 from sklearn.utils import shuffle
-import matplotlib.pyplot as plt
 import tensorflow as tf
 import cv2
 
 ###############################################################
 #                    Parámetros de red
 ###############################################################
-Tamano_imagen = (224,224)
+Tamano_imagen = (64,64)
 
 Capas_convolucionales = 2
 Tamano_filtro = (3,3)
-No_filtros_por_capa = 32
+No_filtros_por_capa = 3
 
 Capas_densas = 0
 neuronas_por_capa = 2
 
 
-epocas_enetrenamiento = 5
-Lote_imagenes_por_epoca = 2
+
+nombre_modelo = "mask_detector_custom"
+
+
 
 
 ###############################################################
 #                    Datos de entrenamiento y test
 ###############################################################
+
+
+epocas_enetrenamiento = 2
+Lote_imagenes_por_epoca = 8
 
 
 train_dataset = tf.keras.preprocessing.image_dataset_from_directory('dataset_train',
@@ -58,15 +63,6 @@ model.summary()
 ###############################################################
 results = model.fit(train_dataset,  epochs=epocas_enetrenamiento)
 
-plt.figure()
-plt.subplot(2,1,1)
-plt.plot( results.history["loss"], label="train_loss")
-plt.subplot(2,1,2)
-plt.plot( results.history["accuracy"], label="accuracy")
-plt.show()
-
-
-
 
 ###############################################################
 #                    Ponemos a prueba el modelo
@@ -81,4 +77,4 @@ print("El modelo que creaste clasifica bien ", str(round( test_results[1]*10,0))
 ###############################################################
 #                    Guardamos el modelo creado
 ###############################################################
-model.save("mask_detector_custom.model", save_format="h5")
+model.save(nombre_modelo+".model", save_format="h5")

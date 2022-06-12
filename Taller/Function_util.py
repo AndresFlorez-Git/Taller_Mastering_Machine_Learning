@@ -76,7 +76,7 @@ def save_pictures(frame,locs, preds):
         print(prediction)
         if prediction == 0: label = 'WithoutMask' + str(round(withoutMask,2))+str(np.random.randint(0,1000000))
         if prediction == 1: label = 'Mask' + str(round(mask,2))+str(np.random.randint(0,1000000))
-        path = 'dataset\with_mask\\' if prediction == 1 else 'dataset\without_mask\\'
+        path = 'dataset/with_mask/' if prediction == 1 else 'dataset/without_mask/'
         img = frame[startY-30:endY+30,startX-30:endX+30]
         cv2.imwrite(path+label+'.jpg', img)
         frame = img

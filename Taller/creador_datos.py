@@ -4,11 +4,21 @@ import cv2
 import numpy as np
 
 
+
+
+########################################################
+
+#                     NO TOCAR
+
+########################################################
+
+
+
 print('Cargando redes neuronales...')
 
 # Se carga el modelo de detección de rostros
-modelPath = "Modelo_deteccion_rostros\model.prototxt"
-weightsPath = "Modelo_deteccion_rostros\weights.caffemodel"
+modelPath = "Modelo_deteccion_rostros/model.prototxt"
+weightsPath = "Modelo_deteccion_rostros/weights.caffemodel"
 face_detection_Net = cv2.dnn.readNet(modelPath, weightsPath)
 
 # Se carga el modelo de detección de máscaras

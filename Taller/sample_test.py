@@ -6,15 +6,20 @@ import numpy as np
 
 print('Cargando redes neuronales...')
 
-# Se carga el modelo de detección de rostros
-modelPath = "Modelo_deteccion_rostros\model.prototxt"
-weightsPath = "Modelo_deteccion_rostros\weights.caffemodel"
-face_detection_Net = cv2.dnn.readNet(modelPath, weightsPath)
+
+
 
 # Se carga el modelo de detección de máscaras
-model = load_model('mask_detector1.model')
+model = load_model('mask_detector1.model')   #  <<<---------------- Modifica aquí el nombre del modelo para importar el que desees
 
 
+
+
+
+# Se carga el modelo de detección de rostros
+modelPath = "Modelo_deteccion_rostros/model.prototxt"
+weightsPath = "Modelo_deteccion_rostros/weights.caffemodel"
+face_detection_Net = cv2.dnn.readNet(modelPath, weightsPath)
 
 # Se inicializa el video
 print("Iniciando Video...")
