@@ -4,19 +4,34 @@ import cv2
 import numpy as np
 
 
-print('Cargando redes neuronales...')
+###############################################################
+#                    Modelo a utilizar
+###############################################################
 
+
+
+nombre_modelo = "mask_detector_custom" #  <<<-------- Modifica aquí el nombre del modelo que quieres evaluar
+
+
+Tamano_imagen = (64,64) # <<<-------- Pon el mismo tamaño de imagen que configuraste en el entrenamiento
+
+
+
+
+###############################################################
+#                    Resultados del modelo // NO TOCAR A PARTIR DE AQUI
+###############################################################
 
 
 
 # Se carga el modelo de detección de máscaras
-model = load_model('mask_detector1.model')   #  <<<---------------- Modifica aquí el nombre del modelo para importar el que desees
-
-
-
+model = load_model(nombre_modelo+'.model')   #  <<<---------- Modifica aquí el nombre del modelo que quieres utilizar
 
 
 # Se carga el modelo de detección de rostros
+
+print('Cargando redes neuronales...')
+
 modelPath = "Modelo_deteccion_rostros/model.prototxt"
 weightsPath = "Modelo_deteccion_rostros/weights.caffemodel"
 face_detection_Net = cv2.dnn.readNet(modelPath, weightsPath)

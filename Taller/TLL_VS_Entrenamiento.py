@@ -1,7 +1,8 @@
-
+import shutil
+import os
 from sklearn.utils import shuffle
 import tensorflow as tf
-import cv2
+
 
 ###############################################################
 #                    Parámetros de red
@@ -23,7 +24,7 @@ nombre_modelo = "mask_detector_custom"
 
 
 ###############################################################
-#                    Datos de entrenamiento y test
+#                    Datos de entrenamiento // NO TOCAR A PARTIR DE AQUI
 ###############################################################
 
 
@@ -31,12 +32,22 @@ epocas_enetrenamiento = 2
 Lote_imagenes_por_epoca = 8
 
 
-train_dataset = tf.keras.preprocessing.image_dataset_from_directory('dataset_train',
-                                                                shuffle=True,
-                                                                batch_size=Lote_imagenes_por_epoca,
-                                                                image_size = Tamano_imagen)
+src_path_mask = 'dataset/con_mascara/'
+src_path_without_mask = 'dataset/sin_mascara/'
 
-test_dataset = tf.keras.preprocessing.image_dataset_from_directory('dataset_test',
+dst_path_mask = 'dataset_train/con_mascara/'
+dst_path_without_mask = 'dataset_train/sin_mascara/'
+
+list_with_Mask = os.listdir(src_path_mask)
+list_without_Mask = os.listdir(src_path_without_mask)
+
+
+for i in list_with_Mask:
+    shutil.move(src_path_mask+i,dst_path_mask+i)
+for i in list_without_Mask:
+    shutil.move(src_path_without_mask+i,dst_path_without_mask+i)
+
+train_dataset = tf.keras.preprocessing.image_dataset_from_directory('dataset_train',
                                                                 shuffle=True,
                                                                 batch_size=Lote_imagenes_por_epoca,
                                                                 image_size = Tamano_imagen)
@@ -63,14 +74,6 @@ model.summary()
 ###############################################################
 results = model.fit(train_dataset,  epochs=epocas_enetrenamiento)
 
-
-###############################################################
-#                    Ponemos a prueba el modelo
-###############################################################
-test_results = model.evaluate(test_dataset)
-print('\n')
-print("test accuracy:", test_results[1])
-print("El modelo que creaste clasifica bien ", str(round( test_results[1]*10,0)),' de cada 10 imagenes en el contexto adecuado')
 
 
 

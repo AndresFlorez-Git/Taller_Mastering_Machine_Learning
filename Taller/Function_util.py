@@ -58,8 +58,8 @@ def plot_box(frame,locs, preds):
         (withoutMask, mask) = pred
         prediction = np.argmax((withoutMask, mask))
         print(pred)
-        if prediction == 0: label = 'withoutMask: ' + str(round(withoutMask,2))
-        if prediction == 1: label = 'Mask: ' + str(round(mask,2))
+        if prediction == 0: label = 'Sin Mascara: ' + str(round(withoutMask,2))
+        if prediction == 1: label = 'Con Mascara: ' + str(round(mask,2))
         color = (0, 255, 0) if prediction == 1 else (0, 0, 255)
         cv2.putText(frame, label, (startX - 60, endY + 15), cv2.FONT_HERSHEY_SIMPLEX, 0.60, color, 2)
         cv2.rectangle(frame, (startX, startY), (endX, endY), color, 2)
@@ -76,7 +76,7 @@ def save_pictures(frame,locs, preds):
         print(prediction)
         if prediction == 0: label = 'WithoutMask' + str(round(withoutMask,2))+str(np.random.randint(0,1000000))
         if prediction == 1: label = 'Mask' + str(round(mask,2))+str(np.random.randint(0,1000000))
-        path = 'dataset/with_mask/' if prediction == 1 else 'dataset/without_mask/'
+        path = 'dataset/con_mascara/' if prediction == 1 else 'dataset/sin_mascara/'
         img = frame[startY-30:endY+30,startX-30:endX+30]
         cv2.imwrite(path+label+'.jpg', img)
         frame = img
