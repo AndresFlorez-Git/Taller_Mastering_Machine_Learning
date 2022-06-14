@@ -4,7 +4,7 @@ import cv2
 import numpy as np
 
 
-def detect_and_predict_mask(frame, faceNet, emotionNet):
+def detect_and_predict_mask(frame, faceNet, emotionNet,Tamano_imagen):
     # Se modifican las dimensiones de la imagen original y se crea el blob como imagen
     # procesada.
     (h, w) = frame.shape[:2]
@@ -32,7 +32,7 @@ def detect_and_predict_mask(frame, faceNet, emotionNet):
             # Se extrae la porcion de la imagen correspondiente al rostro
             face = frame[startY:endY, startX:endX]
             face = cv2.cvtColor(face, cv2.COLOR_BGR2RGB)
-            face = cv2.resize(face, (224, 224))
+            face = cv2.resize(face, Tamano_imagen)
             face = img_to_array(face)
             face = preprocess_input(face)
 

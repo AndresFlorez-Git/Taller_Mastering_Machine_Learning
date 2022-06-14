@@ -18,6 +18,10 @@ Tamano_imagen = (64,64) # <<<-------- Pon el mismo tamaño de imagen que configu
 
 
 
+
+
+
+
 ###############################################################
 #                    Resultados del modelo // NO TOCAR A PARTIR DE AQUI
 ###############################################################
@@ -25,7 +29,7 @@ Tamano_imagen = (64,64) # <<<-------- Pon el mismo tamaño de imagen que configu
 
 
 # Se carga el modelo de detección de máscaras
-model = load_model(nombre_modelo+'.model')   #  <<<---------- Modifica aquí el nombre del modelo que quieres utilizar
+model = load_model(nombre_modelo+'.model')  
 
 
 # Se carga el modelo de detección de rostros
@@ -47,7 +51,7 @@ while True:
     True_image, frame = camera.read()
     
     # Usando los modelos de detección de rostro concatenado al modelo de detección de emociones.
-    (Ubicacion, Probabilidades) = detect_and_predict_mask(frame, face_detection_Net, model)
+    (Ubicacion, Probabilidades) = detect_and_predict_mask(frame, face_detection_Net, model, Tamano_imagen)
     
     # Se pinta sobre la imagen la ubicacion y la probabilidad.
     frame = plot_box(frame, Ubicacion, Probabilidades)

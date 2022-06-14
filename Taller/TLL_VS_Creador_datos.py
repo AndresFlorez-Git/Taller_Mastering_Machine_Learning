@@ -24,6 +24,7 @@ face_detection_Net = cv2.dnn.readNet(modelPath, weightsPath)
 # Se carga el modelo de detección de máscaras
 model = load_model('mask_detector1.model')
 
+Tamano_imagen = (224,224)
 
 # Se inicializa el video
 print("Iniciando Video...")
@@ -36,7 +37,7 @@ while True:
     True_image, frame = camera.read()
     
     # Usando los modelos de detección de rostro concatenado al modelo de detección de máscaras.
-    (Ubicacion, Probabilidades) = detect_and_predict_mask(frame, face_detection_Net, model)
+    (Ubicacion, Probabilidades) = detect_and_predict_mask(frame, face_detection_Net, model, Tamano_imagen)
     
     # Se guarda la imagen correctamente etiquetada
     frame = save_pictures(frame, Ubicacion, Probabilidades)
