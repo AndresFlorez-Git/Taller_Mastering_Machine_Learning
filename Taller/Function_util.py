@@ -57,7 +57,6 @@ def plot_box(frame,locs, preds):
         (startX, startY, endX, endY) = box
         (withoutMask, mask) = pred
         prediction = np.argmax((withoutMask, mask))
-        print(pred)
         if prediction == 0: label = 'Sin Mascara: ' + str(round(withoutMask,2))
         if prediction == 1: label = 'Con Mascara: ' + str(round(mask,2))
         color = (0, 255, 0) if prediction == 1 else (0, 0, 255)
@@ -73,7 +72,6 @@ def save_pictures(frame,locs, preds):
         (startX, startY, endX, endY) = box
         (withoutMask, mask) = pred
         prediction = np.argmax(( mask,withoutMask))
-        print(prediction)
         if prediction == 0: label = 'WithoutMask' + str(round(withoutMask,2))+str(np.random.randint(0,1000000))
         if prediction == 1: label = 'Mask' + str(round(mask,2))+str(np.random.randint(0,1000000))
         path = 'dataset/con_mascara/' if prediction == 1 else 'dataset/sin_mascara/'

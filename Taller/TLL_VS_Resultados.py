@@ -19,7 +19,8 @@ Tamano_imagen = (64,64) # <<<-------- Pon el mismo tamaño de imagen que configu
 
 
 
-
+# nombre_modelo = "mask_detector1" # TE RECOMIENDO PROBAR ESTE MODELO (Solo tienes que descomentar quitando el simbolo # al inicio de la línea):
+# Tamano_imagen = (224,224)        #
 
 
 ###############################################################

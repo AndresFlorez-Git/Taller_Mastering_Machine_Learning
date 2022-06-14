@@ -29,7 +29,7 @@ nombre_modelo = "mask_detector_custom"
 
 
 epocas_enetrenamiento = 2
-Lote_imagenes_por_epoca = 8
+Lote_imagenes_por_epoca = 6
 
 
 src_path_mask = 'dataset/con_mascara/'
@@ -61,6 +61,7 @@ model = tf.keras.models.Sequential()
 model.add(tf.keras.layers.InputLayer(input_shape=(Tamano_imagen[0], Tamano_imagen[1], 3 )))
 for i in range(Capas_convolucionales):
     model.add(tf.keras.layers.Conv2D(No_filtros_por_capa, Tamano_filtro, activation='relu', kernel_initializer='he_normal', padding='same'))
+    model.add(tf.keras.layers.MaxPooling2D(pool_size=(2,2)))
 model.add(tf.keras.layers.Flatten())
 for i in range(Capas_densas):
     model.add(tf.keras.layers.Dense(neuronas_por_capa, activation= 'relu', kernel_initializer='he_normal'))
