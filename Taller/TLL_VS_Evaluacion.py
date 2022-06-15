@@ -23,7 +23,7 @@ Tamano_imagen = (64,64) # <<<-------- Pon el mismo tamaño de imagen que configu
 ###############################################################
 #                    Datos de prueba // NO TOCAR A PARTIR DE AQUI
 ###############################################################
-Lote_imagenes_por_epoca = 8
+Lote_imagenes_por_epoca = 4
 test_dataset = tf.keras.preprocessing.image_dataset_from_directory('dataset_test',
                                                                 shuffle=True,
                                                                 batch_size=Lote_imagenes_por_epoca,

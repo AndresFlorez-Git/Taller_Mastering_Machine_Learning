@@ -50,7 +50,7 @@ for i in list_with_Mask:
 for i in list_without_Mask:
     shutil.move(src_path_without_mask+i,dst_path_without_mask+i)
 
-train_dataset = tf.keras.preprocessing.image_dataset_from_directory('dataset_train',
+train_dataset = tf.keras.preprocessing.image_dataset_from_directory('dataset',
                                                                 shuffle=True,
                                                                 batch_size=Lote_imagenes_por_epoca,
                                                                 image_size = Tamano_imagen)
