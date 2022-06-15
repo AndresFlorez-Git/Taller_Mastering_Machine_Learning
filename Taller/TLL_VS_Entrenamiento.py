@@ -29,17 +29,20 @@ nombre_modelo = "mask_detector_custom"
 
 
 epocas_enetrenamiento = 2
-Lote_imagenes_por_epoca = 6
+Lote_imagenes_por_epoca = 4
 
 
 src_path_mask = 'dataset/con_mascara/'
 src_path_without_mask = 'dataset/sin_mascara/'
 
-dst_path_mask = 'dataset_train/con_mascara/'
-dst_path_without_mask = 'dataset_train/sin_mascara/'
+dst_path_mask = 'dataset_test/con_mascara/'
+dst_path_without_mask = 'dataset_test/sin_mascara/'
 
 list_with_Mask = os.listdir(src_path_mask)
+list_with_Mask = list_with_Mask[:int(len(list_with_Mask)*0.15)]
 list_without_Mask = os.listdir(src_path_without_mask)
+list_without_Mask = list_without_Mask[:int(len(list_without_Mask)*0.15)]
+
 
 
 for i in list_with_Mask:
