@@ -1,6 +1,6 @@
 # Taller Mastering Machine Learning
 ## Materiales:
-- Raspberry Pi (Puede ser 3b+ o 4b+)
+- Raspberry Pi 4b+
 - Memoria SD de mínimo 15 Gb
 - Cable HDMI.
 - Cámara Raspberry Pi
